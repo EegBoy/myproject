@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="800" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="104312" tilewidth="32" tileheight="32">
+  <image source="104312.jpg" width="320" height="240"/>
+ </tileset>
+ <tileset firstgid="71" name="water" tilewidth="32" tileheight="32">
+  <image source="water.png" width="797" height="256"/>
+ </tileset>
+ <tileset firstgid="263" name="end" tilewidth="32" tileheight="32">
+  <image source="end.png" width="479" height="300"/>
+ </tileset>
+ <tileset firstgid="389" name="sky" tilewidth="32" tileheight="32">
+  <image source="sky.png" width="259" height="258"/>
+ </tileset>
+ <tileset firstgid="453" name="up" tilewidth="32" tileheight="32">
+  <image source="up.png" width="244" height="32"/>
+ </tileset>
+ <tileset firstgid="460" name="wall" tilewidth="32" tileheight="32">
+  <image source="wall.png" width="64" height="160"/>
+ </tileset>
+ <layer name="layer1" width="800" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt2UsKhDAQRVGh/4P+73+v1tBBaQgIFeRcOBOTBcjLNEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSdLxOwCGcwyVcwy3cV749GvcBAJa2/iVa59nZEziEV3iHT/iG38q3f+M+AMDS1r9E6zw7q95sgX1kG0PvJlG9rwAA4/H+AWSyjaF3k6jeVwCA8Xj/ADLZxtC7SVTvKwDAeLx/AJlsY+jdJKr3FQBgPN4/gEy2MfRuEtX7CgAwHu8fQCbbGHo3iep9BQAYz97vHzNakdvR
+  </data>
+ </layer>
+ <layer name="layer2" width="800" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztydk2UAEAQFF9PCJkKkrmWYXKkHn8MOcj7pO1z1rnaY9+GBkZ6/H+2BM92Z96qkc555xzzjnnfCCf7pn+3LM91/O90Iucc84555xzPqB/6a+91Mv9rb/3Sv/gnHPOOeec8wF9tdd6vTd6s7d6u3c455xzzjnnfEDf7b3e74M+7KP+2b8455xzzjnnfED/3cd90qf9p//2vz7jnHPOOeec8wH9vC/6sv/3VV/3Td9yzjnnnHPO+YB+1/f90I/91M/90q+cc84555xzPqBLkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkvQeewNnDSpx
+  </data>
+ </layer>
+ <layer name="end" width="800" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt1idORQEURdHPOOg4Oo6Oo+PoODrzHwF7AC+IZ4BkrWT7a05yJxMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgv5qemkxmarbmar4WarGWpn77OgCAv8kPBeMst4+VWq21Wq+N2qwt2wEAGOSHgnG228dO7dZe7ddBHdaR7QAADPJDwTjH7eOkTuuszuuiLuvKdgAABvmhYJzr9nFTt3VX9/VQj/VkOwAAg/xQMM5z+3ip13qr9/qoz/qyHQCAQX4o+Nk3QYMY8Q==
+  </data>
+ </layer>
+ <layer name="water" width="800" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt2rkKAjEYhdE8oGvlWrqUru+Pt7EZphgYUBPPga8PCSkS/lIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+LRVWqdN2qZJmqZZmqdFWn5tdXWwhwAAMMwlXdMt3dMhHdMpnb+4rprYw//gnVmn7rnt0r44PwAAfpt3Zp265/ZIz+L8AABa0/fv7M8ZxqnpXtW0VoAhzEK0yaxEO/r+nf05wzg13aua1gowhFmINpmVAADg7QUPtEDA
+  </data>
+ </layer>
+ <layer name="speed" width="800" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt2FkKwDAIBcDkuD1o90vVK5QuJmQG3r+IkmApAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADvmGspS2SNbJE9ckTOml0ZAACMzV8dcti9Z6bsAgBokvcVAAAA+tTKzddtoX+tzFKLzDcAAADAPe4pMB57/x29/Y9eAxkuzaY4Mg==
+  </data>
+ </layer>
+ <objectgroup name="player" width="800" height="15">
+  <object name="myplayer" x="147" y="416" width="32" height="32"/>
+  <object name="com1" x="125" y="384" width="32" height="32"/>
+  <object name="com2" x="109" y="352" width="32" height="32"/>
+  <object name="com3" x="93" y="320" width="32" height="32"/>
+  <object name="coin" x="2400" y="400" width="32" height="32"/>
+  <object name="coin" x="2528" y="400" width="32" height="32"/>
+  <object name="coin" x="3456" y="298" width="32" height="32"/>
+  <object name="coin" x="3552" y="298" width="32" height="32"/>
+  <object name="coin" x="3648" y="298" width="32" height="32"/>
+  <object name="coin" x="4512" y="432" width="32" height="32"/>
+  <object name="coin" x="4576" y="397" width="32" height="32"/>
+  <object name="coin" x="4640" y="432" width="32" height="32"/>
+  <object name="coin" x="5440" y="291" width="32" height="32"/>
+  <object name="coin" x="5504" y="320" width="32" height="32"/>
+  <object name="coin" x="5568" y="349" width="32" height="32"/>
+  <object name="coin" x="6720" y="429" width="32" height="32"/>
+  <object name="coin" x="6816" y="429" width="32" height="32"/>
+  <object name="coin" x="7104" y="298" width="32" height="32"/>
+  <object name="coin" x="7200" y="298" width="32" height="32"/>
+  <object name="coin" x="17920" y="432" width="32" height="32"/>
+  <object name="coin" x="17792" y="432" width="32" height="32"/>
+  <object name="coin" x="17664" y="432" width="32" height="32"/>
+  <object name="coin" x="14496" y="352" width="32" height="32"/>
+  <object name="coin" x="14624" y="320" width="32" height="32"/>
+  <object name="coin" x="14368" y="320" width="32" height="32"/>
+  <object name="coin" x="9216" y="336" width="32" height="32"/>
+  <object name="coin" x="9280" y="336" width="32" height="32"/>
+  <object name="coin" x="12064" y="330" width="32" height="32"/>
+  <object name="coin" x="12128" y="394" width="32" height="32"/>
+  <object name="banana" x="9888" y="387" width="32" height="32"/>
+  <object name="banana" x="2091" y="367" width="32" height="32"/>
+  <object name="banana" x="4278" y="327" width="32" height="32"/>
+  <object name="banana" x="8438" y="435" width="32" height="32"/>
+  <object name="banana" x="11647" y="360" width="32" height="32"/>
+  <object name="banana" x="17709" y="340" width="32" height="32"/>
+  <object name="banana" x="15800" y="300" width="32" height="32"/>
+ </objectgroup>
+</map>

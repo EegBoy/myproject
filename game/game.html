@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>狂野机车</title>
+    <link rel="stylesheet" href="css/game.css"/>
+    <script src="tools/jquery.min.js"></script>
+    <script src="tools/jquery.validate.js"></script>
+    <script src="tools/messages_zh.min.js"></script>
+    <script src="js/server/Datebases.js"></script>
+    <script src="js/server/ButtonManage.js"></script>
+    <script src="js/server/imgManage.js"></script>
+    <script src="js/server/KeyManage.js"></script>
+    <!--登录界面-->
+    <script src="js/section/login/LoginRigister.js"></script>
+    <script src="js/section/login/LoginBtn_action.js"></script>
+    <script src="js/section/login/Create_login_btn.js"></script>
+    <script src="js/section/login/Verification.js"></script>
+
+    <!--加载页面-->
+    <script src="js/section/Mainload/Mainload.js"></script>
+
+    <!--菜单页面-->
+    <script src="js/section/Menu/Menu.js"></script>
+    <script src="js/section/Menu/Create_menu_btn.js"></script>
+    <script src="js/section/Menu/MenuBtn_action.js"></script>
+
+    <!--商店页面-->
+    <script src="js/section/shop/Shop.js"></script>
+    <script src="js/section/shop/Create_shop_list.js"></script>
+    <script src="js/section/shop/Create_shop_btn.js"></script>
+    <script src="js/section/shop/ShopShow.js"></script>
+    <script src="js/section/shop/ShopBtn_action.js"></script>
+    <script src="js/section/shop/Buy.js"></script>
+
+    <!--我的车库-->
+    <script src="js/section/Carport/Carport.js"></script>
+    <script src="js/section/Carport/first_carport.js"></script>
+    <!--地图-->
+    <script src="js/section/CheckPoint/CheckPoint.js"></script>
+    <script src="js/section/SmallPoint/SmallPoint.js"></script>
+
+    <!--游戏-->
+    <script src="js/section/ChoseEquip/MyEquip.js"></script><!--选择装备-->
+    <script src="js/section/game/player.js"></script>
+    <script src="js/section/game/npc.js"></script>
+    <script src="js/section/game/Game.js"></script>
+    <script src="js/section/game/Coins.js"></script>
+    <script src="js/section/game/Ice.js"></script>
+    <script src="js/section/game/Sand.js"></script>
+    <script src="js/section/game/Water.js"></script>
+    <script src="js/section/game/Banana.js"></script>
+    <script src="js/section/game/CreateGameBtn.js"></script>
+    <script src="js/section/game/CountDown.js"></script>
+    <script src="js/section/game/Action.js"></script>
+    <script src="js/section/Podium/Podium.js"></script>
+    <script src="js/section/game/RestartGame.js"></script>
+    <script src="js/G.js"></script>
+</head>
+<body>
+    <!--音乐-->
+    <audio id="click_music" src="images/Music/click.ogg"></audio>
+    <audio id="coins_music" src="images/Music/CoinCollect.ogg"></audio>
+    <audio id="end_music" src="images/Music/end.mp3"></audio>
+    <audio id="game_music" src="images/Music/game.mp3"></audio>
+    <audio id="go_music" src="images/Music/go.mp3"></audio>
+    <audio id="jiasu_music" src="images/Music/jiasu.mp3"></audio>
+    <audio id="start_music"  src="images/Music/start.mp3"></audio>
+    <audio id="Theme_music" src="images/Music/Theme.mp3" loop="loop" controls></audio>
+    <audio id="moto_music" src="images/Music/moto.mp3"></audio>
+    <!--一、登录注册开始-->
+    <div class="coverLayer0"></div>
+    <article class="login_register" >
+        <!--1、登录框-->
+        <section class="login_box"  >
+            <form action="">
+                <table>
+                    <tr>
+                        <td>用户名：</td>
+                        <td><input class="username" type="text" placeholder="请输入用户名"/></td>
+                    </tr>
+                    <tr>
+                        <td>密　码：</td>
+                        <td><input class="password" type="password" placeholder="请输入密码"/></td>
+                    </tr>
+                </table>
+                <div class="login_btn"></div>
+                <div class="register_btn"></div>
+            </form>
+        </section>
+        <!--2、注册框-->
+        <section class="register_box" style="display: none">
+            <form id="reg">
+                <table>
+                    <tr>
+                        <td>用 &nbsp;户 &nbsp;名:</td>
+                        <td><input id="name" class="name input_text"  name="name" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>密　　码:</td>
+                        <td><input id="pwd" class="pwd input_text" name="pwd" type="password"/></td>
+                    </tr>
+                    <tr>
+                        <td>确认密码:</td>
+                        <td><input name="pwd2" class="pwd2 input_text" type="password"/></td>
+                    </tr>
+                    <tr>
+                        <td>昵　　称:</td>
+                        <td><input name="game_name" class="game_name input_text" type="text"/></td>
+                    </tr>
+                </table>
+                <div class="ensure"></div>
+                <div class="cancel"></div>
+            </form>
+        </section>
+    </article>
+    <!--一、登录注册结束-->
+    <!--游戏界面开始-->
+    <article class="main_game" >
+        <!--进度条加载-->
+        <section class="load" style="display: none">
+            <div class="pointer">
+                <img src="images/Bg/pointer.png" alt=""/>
+            </div>
+            <div class="bar">
+                <div class="load_bar"></div>
+            </div>
+            <div class="load_num">
+                <p>0</p>
+            </div>
+            <div class="loading">
+                <p>loading...</p>
+            </div>
+        </section>
+        <!--菜单-->
+        <section class="menu" style="display: none">
+            <div class="coverLayer"></div>
+            <div class="mode1_option"></div>
+            <div class="mode2_option"></div>
+            <div class="shop_option"></div>
+            <div class="about_option"></div>
+            <div class="menu_notice"  style="display: none">
+                <div class="notice_content">
+                    <img src="images/Window/unwindow.png" alt=""/>
+                </div>
+                <div class="back"></div>
+            </div>
+        </section>
+        <!--单人模式-->
+        <section class="single_mode">
+            <!--关卡-->
+            <div class="main_checkpoint" style="display: none">
+                <div class="bg_header">
+                    <img src="images/Bg/checkpointbg_2.png" alt=""/>
+                </div>
+                <div class="Visual_area">
+                    <div class="checkpoint">
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint1.png" alt=""/>
+                                </li>
+                                <li class="block"></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint2.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint3.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint4.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint5.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint6.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint7.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint8.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint9.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint10.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint11.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="point" src="images/CheckPoint/checkpoint12.png" alt=""/>
+                                </li>
+                                <li class="block">
+                                    <img  src="images/CheckPoint/checkblock.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="turn_left"></div>
+                <div class="turn_right"></div>
+                <div class="check_back"></div>
+                <div class="checkpoint_continue"></div>
+                <div class="checkpoint_notice"  style="display: none">
+                    <div class="checkpoint_noticeImg">
+                        <img src="" alt=""/>
+                    </div>
+                    <div class="notice_back"></div>
+                </div>
+            </div>
+            <!--地图-->
+            <div class="small_point" style="display: none">
+                <div class="mainSmallMap">
+                    <div class="small_map" >
+                        <div>
+                            <img class="track" src="images/Track/track1_01.gif" alt=""/>
+                        </div>
+                    </div>
+                    <div class="small_map">
+                        <div>
+                            <img class="track" src="images/Track/track1_02.gif" alt=""/>
+                        </div>
+                        <div class="small_block">
+                            <img src="images/Track/block.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="small_map">
+                        <div>
+                            <img class="track" src="images/Track/track1_03.gif" alt=""/>
+                        </div>
+                        <div class="small_block">
+                            <img src="images/Track/block.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="small_map small_map4" >
+                        <div>
+                            <img class="track " src="images/Track/track1_04.gif" alt=""/>
+                        </div>
+                        <div class="small_block">
+                            <img src="images/Track/block.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="small_map small_map4">
+                        <div>
+                            <img class="track " src="images/Track/track1_05.gif" alt=""/>
+                        </div>
+                        <div class="small_block">
+                            <img src="images/Track/block.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="small_map small_map4">
+                        <div>
+                            <img class="track " src="images/Track/track1_06.gif" alt=""/>
+                        </div>
+                        <div class="small_block">
+                            <img src="images/Track/block.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="small_map">
+                        <div>
+                            <img class="track" src="images/Track/track1_07.gif" alt=""/>
+                        </div>
+                        <div class="small_block">
+                            <img src="images/Track/block.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="small_map">
+                        <div>
+                            <img class="track" src="images/Track/track1_08.gif" alt=""/>
+                        </div>
+                        <div class="small_block">
+                            <img src="images/Track/block.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="small_map">
+                        <div>
+                            <img class="track" src="images/Track/track1_09.gif" alt=""/>
+                        </div>
+                        <div class="small_block">
+                            <img src="images/Track/block.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="choose_map">
+                        <img class="track" src="images/Track/track1_01.gif" alt=""/>
+                    </div>
+                    <div class="small_map_back"></div>
+                    <div class="small_map_continue"></div>
+                </div>
+                <div class="smallMap_notice"  style="display: none">
+                    <div class="smallMap_noticeImg">
+                        <img src="" alt=""/>
+                    </div>
+                    <div class="smallMap_noticeBack"></div>
+                </div>
+            </div>
+            <!--我的装备-->
+            <div class="myCarport myEquip" style="display: none">
+                <div class="carport_view" >
+                    <div class="carport_bicker">
+                        <img src="images/Shop/c1.png" alt=""/>
+                    </div>
+                    <div class="carport_car">
+                        <img src="images/Shop/m1.png" alt=""/>
+                    </div>
+                    <div class="carport_fWheel carport_wheel">
+                        <img src="images/Shop/w1.png" alt=""/>
+                    </div>
+                    <div class="carport_aWheel carport_wheel">
+                        <img src="images/Shop/w1.png" alt=""/>
+                    </div>
+                </div>
+                <div class="attr">
+                    <table>
+                        <tr>
+                            <td>人物车技</td>
+                            <td class="bicker_attr">C-</td>
+                        </tr>
+                        <tr>
+                            <td>最高时速</td>
+                            <td class="carSpeed">150km/h</td>
+                        </tr>
+                        <tr>
+                            <td >加速度时间</td>
+                            <td class="aSpeed">15s</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="pre_equip">
+                    <table>
+                        <tr>
+                            <td><img class="dir left_btn1" src="images/button/left.png" alt=""/></td>
+                            <td><img class="choose_equip equip1" src="images/Shop/c1s.png" alt=""/></td>
+                            <td><img class="dir right_btn1" src="images/button/right.png" alt=""/></td>
+                        </tr>
+                        <tr>
+                            <td><img class="dir left_btn2" src="images/button/left.png" alt=""/></td>
+                            <td><img class="choose_equip equip2" src="images/Shop/m1s.png" alt=""/></td>
+                            <td><img class="dir right_btn2" src="images/button/right.png" alt=""/></td>
+                        </tr>
+                        <tr>
+                            <td><img class="dir left_btn3" src="images/button/left.png" alt=""/></td>
+                            <td><img class="choose_equip equip3" src="images/Shop/w1s.png" alt=""/></td>
+                            <td><img class="dir right_btn3" src="images/button/right.png" alt=""/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="myEquip_start"></div>
+                <div class="myEquip_back"></div>
+            </div>
+        </section>
+        <!--双人模式-->
+        <section class="double_mode" style="display: none"></section>
+        <!--商店-->
+        <section class="shop" style="display: none">
+            <!--//左边玩家装备预览-->
+            <div class="preview">
+                <div class="player_name"></div>
+                <div class="player_preview">
+                    <img class="bicker_view " src="images/Shop/c1.png" alt=""/>
+                    <img class="car_view" src="images/Shop/m1.png" alt=""/>
+                    <img class="fWheel_view Wheel_view " src="images/Shop/w1.png" alt=""/>
+                    <img class="aWheel_view Wheel_view " src="images/Shop/w1.png" alt=""/>
+                </div>
+                <div class="gold"></div>
+                <div class="marquee">
+                    <p>尊敬<span class="marquee_user"></span>用户，欢迎来到游戏商城，祝您购物愉快！</p>
+                </div>
+
+            </div>
+            <!--中间选项卡-->
+            <div class="option">
+                <div class="bicker_option equip"></div>
+                <div class="car_option equip"></div>
+                <div class="wheel_option equip "></div>
+            </div>
+            <!--商品预览-->
+            <div class="good">
+                <div class="list"></div>
+                <div class="btn">
+                    <div class="pre"></div>
+                    <div class="next"></div>
+                </div>
+            </div>
+
+            <!--车库按钮-->
+            <div class="carport" >
+
+            </div>
+            <!--充值按钮-->
+            <div class="credit"  ></div>
+            <div class="credit_notice" style="display: none">
+                <div class="credit_img">
+                    <img src="images/Window/unwindow.png" alt=""/>
+                </div>
+                <div class="back1"></div>
+            </div>
+            <div class="shop_back"></div>
+            <!--商品鼠标预览提示-->
+            <div class="equip_notice" style="display: none">
+                <img src="" alt=""/>
+            </div>
+        </section>
+        <!--我的车库-->
+        <section class="myCarport myCarport2" style="display: none">
+            <div class="carport_view">
+                <div class="carport_bicker">
+                    <img src="images/Shop/c1.png" alt=""/>
+                </div>
+                <div class="carport_car">
+                    <img src="images/Shop/m1.png" alt=""/>
+                </div>
+                <div class="carport_fWheel carport_wheel">
+                    <img src="images/Shop/w1.png" alt=""/>
+                </div>
+                <div class="carport_aWheel carport_wheel">
+                    <img src="images/Shop/w1.png" alt=""/>
+                </div>
+            </div>
+            <div class="attr">
+                <table>
+                    <tr>
+                        <td>人物车技</td>
+                        <td class="bicker_attr">C-</td>
+                    </tr>
+                    <tr>
+                        <td>最高时速</td>
+                        <td class="carSpeed">150km/h</td>
+                    </tr>
+                    <tr>
+                        <td >加速度时间</td>
+                        <td class="aSpeed">15s</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="pre_equip">
+                <table>
+                    <tr>
+                        <td><img class="dir left_btn1" src="images/button/left.png" alt=""/></td>
+                        <td><img class="choose_equip equip1" src="images/Shop/c1s.png" alt=""/></td>
+                        <td><img class="dir right_btn1" src="images/button/right.png" alt=""/></td>
+                    </tr>
+                    <tr>
+                        <td><img class="dir left_btn2" src="images/button/left.png" alt=""/></td>
+                        <td><img class="choose_equip equip2" src="images/Shop/m1s.png" alt=""/></td>
+                        <td><img class="dir right_btn2" src="images/button/right.png" alt=""/></td>
+                    </tr>
+                    <tr>
+                        <td><img class="dir left_btn3" src="images/button/left.png" alt=""/></td>
+                        <td><img class="choose_equip equip3" src="images/Shop/w1s.png" alt=""/></td>
+                        <td><img class="dir right_btn3" src="images/button/right.png" alt=""/></td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="carport_back"></div>
+
+        </section>
+        <!--充值-->
+        <section class="myCredit"></section>
+        <!--关于-->
+        <section class="about" style="display: none"></section>
+        <div class="exit" style="display: none"></div>
+        <div class="judge_exit" style="display: none">
+            <img src="images/Window/closewindow.png" alt=""/>
+            <div class="exit_ok"></div>
+            <div class="exit_cancel"></div>
+        </div>
+        <div class="notice" style="display: none">
+            <img src="" alt=""/>
+            <div class="notice_ok"></div>
+        </div>
+        <div class="notice2" style="display: none">
+            <img src="" alt=""/>
+            <div class="notice_ok2"></div>
+        </div>
+        <div class="buyed_notice" style="display: none">
+            <img src="images/Window/closewindow.png" alt=""/>
+            <span class="p1_gold"></span>
+            <span class="p2_type"></span>
+            <div class="judge_ok"></div>
+            <div class="judge_cancel"></div>
+        </div>
+        <!--开始游戏-->
+        <section class="game" style="display: none">
+            <header>
+                <!--排名-->
+                <div class="ranking">
+                    <img src="images/Game/num.png" alt=""/>
+                    <span class="">4</span>
+                </div>
+                <!--第几关卡-->
+                <div class="start">
+                    <img src="images/Game/start.png" alt=""/>
+                    <span>1-1</span>
+                </div>
+                <!--时间-->
+                <div class="time">
+                    <img src="images/Game/timer.png" alt=""/>
+                    <span>0</span>
+                </div>
+                <!--吃到的金币-->
+                <div class="myGold">
+                    <img src="images/Game/coin.png" alt=""/>
+                    <span>0</span>
+                </div>
+            </header>
+            <!--游戏背景地图-->
+            <div class="map">
+                <img class="startLine" src="images/Maps/Map1/end.png" alt=""/>
+                <img class="endLine" src="images/Maps/Map1/end.png" alt=""/>
+                <!--红绿灯-->
+                <div class="light">
+                    <img class="light0" src="images/Game/light.png" alt=""/>
+                    <img style="display:none" class="light1" src="images/Game/red.png" alt=""/>
+                    <img style="display:none" class="light2" src="images/Game/yellow.png" alt=""/>
+                    <img style="display:none" class="light3" src="images/Game/yellow.png" alt=""/>
+                    <img style="display:none" class="light4" src="images/Game/green.png" alt=""/>
+                </div>
+                <!--道具-->
+                <div class="prop" >
+                    <img class="prop_bar" src="images/Game/prop.png" alt=""/>
+                    <div class="prop_banana">
+                        <img class="none" src="" alt=""/>
+                    </div>
+                </div>
+                <!--倒计时-->
+                <div class="countDown">
+                    <img src="" alt=""/>
+                </div>
+                <!--加速带-->
+                <div class="ice"></div>
+                <!--沙地-->
+                <div class="sand"></div>
+                <!--水潭-->
+                <div class="water"></div>
+                <!--金币-->
+                <canvas id="canvas" class="canvas"  width="32000" height="500"></canvas>
+                <!--香蕉-->
+                <div class="banana"></div>
+                <!--香蕉皮-->
+                <div class="banana_peel" style="z-index: 1000"></div>
+            </div>
+            <!--鼠标点击按钮-->
+            <div class="mouse_control">
+                <img class="up" src="images/Game/up.png" alt=""/>
+                <img class="down" src="images/Game/down.png" alt=""/>
+                <img class="go" src="images/Game/go.png" alt=""/>
+                <img class="stop" src="images/Game/stop.png" alt=""/>
+                <img class="pause" src="images/Game/pause.png" alt=""/>
+                <div class="coverLayer2"></div>
+            </div>
+            <div class="game_menu" style="display: none">
+                <ul>
+                    <li class="continue_game"></li>
+                    <li class="restart"></li>
+                    <li class='return_menu'> </li>
+                </ul>
+            </div>
+        </section>
+        <!--颁奖界面-->
+        <section class="podium" style="display: none">
+            <span class="podium_point">关卡：<span>1-1</span></span>
+            <span class="podium_rank">第<span>3</span>名</span>
+            <span class="podium_time">比赛时间：<span>10.1</span></span>
+            <span class="getCoins">获得金币:<span>1000</span></span>
+            <span class="MyCoins">我的金币：<span>8900</span></span>
+            <span class="clear_point">恭喜您解锁关卡：<span>1-2</span></span>
+            <div class="first">
+                <img src="images/End/cha1.png" alt=""/>
+            </div>
+            <div class="second">
+                <img src="images/End/cha2.png" alt=""/>
+            </div>
+            <div class="third">
+                <img src="images/End/cha3.png" alt=""/>
+            </div>
+            <div class="podium_continue"></div>
+            <div class="podium_restart"></div>
+        </section>
+    </article>
+    <div class="set"></div>
+</body>
+</html>

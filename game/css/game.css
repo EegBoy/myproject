@@ -1,0 +1,904 @@
+/*初始化*/
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{
+    margin:0;padding:0
+}
+body{
+    font:12px"����","Arial Narrow",HELVETICA;
+    background:#fff;
+    -webkit-text-size-adjust:100%;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color:#cd0200;
+    text-decoration:none;
+}
+em{
+    font-style:normal
+}
+li{
+    list-style:none
+}
+img{
+    border:0;
+    vertical-align:middle
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0
+}
+p{
+    word-wrap:break-word
+}
+.coverLayer{
+    position:absolute;
+    z-index: 10;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.1) ;
+}
+.coverLayer0{
+    position:absolute;
+    z-index: 10;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.1) ;
+}
+.coverLayer2{
+    position: absolute;
+    left: 697px;
+    z-index: 10000;
+    width: 100px;
+    height: 100px;
+
+
+}
+
+/***********************************页面布局**********************************************/
+    /*登录注册*/
+.login_register{
+    background-image: url("../images/loginbg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.login_box{
+    position:relative;
+    top: 280px;
+    left: 50px;
+    width: 800px;
+    height: 350px;
+}
+.login_box table{
+    width: 700px;
+}
+.login_box table tr td{
+    font-size: 50px;
+    height: 60px;
+    padding:0 0 60px 0;
+
+    /*line-height: 60px;*/
+}
+.username,.password,.name,.pwd,.pwd2,.game_name{
+    width: 430px;
+    height: 60px;
+    line-height: 60px;
+    background-color: transparent;
+    border-radius: 10px;
+    outline: none;
+    font-size: 30px;
+}
+    /*注册框*/
+.register_box{
+    position:relative;
+    top: 50px;
+    left: 250px;
+    width: 1100px;
+    height: 500px;
+}
+.register_box table{
+    width: 1100px;
+}
+.register_box table tr td{
+    font-size: 30px;
+    height: 60px;
+    padding:0 0 60px 0;
+    width: 50px;
+}
+#Theme_music{
+    position: absolute;
+    left: -200px;
+    top:0;
+    z-index: 1000;
+}
+
+
+
+/***************************************进度加载*******************************************/
+
+
+
+.load{
+    background-image:url("../images/Bg/bkg2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.pointer{
+    position: absolute;
+    width: 290px;
+    height: 170px;
+    top:50%;
+    left: 50%;
+    margin: -85px 0 0 -160px;
+    animation:pointer 5s 1 ease ;
+    animation-fill-mode: forwards;
+}
+.bar{
+    width: 155px;
+    height: 13px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 92px 0 0 -106px;
+}
+.load_bar{
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 0 0 -76px;
+    animation:bar 5s 1 ease;
+    animation-fill-mode: forwards;
+}
+.load_num{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -76px
+}
+.load_num p{
+    width: 50px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.loading{
+    color: yellow;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 70px 0 0 -76px;
+    animation:myAnimation 1s infinite ease;
+    animation-fill-mode: forwards
+}
+@keyframes pointer {
+    0%{
+        transform:rotate(0deg) ;
+    }
+    50%{
+        transform:rotate(195deg) ;
+    }
+    100%{
+        transform:rotate(242deg) ;
+    }
+}
+
+@keyframes bar {
+    0%{
+        width: 0;
+        background: deepskyblue;
+    }
+    50%{
+        width: 100px ;
+        background: yellow;
+    }
+    100%{
+        width: 153px;
+        background: red;
+    }
+}
+@keyframes myAnimation {
+    0%{
+        opacity: 1;
+
+    }
+    100%{
+        opacity: 0.2;
+    }
+
+}
+/***************************主菜单****************************/
+.menu{
+    background-image:url("../images/Bg/menubg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+.menu_notice{
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    z-index: 20;
+}
+.judge_exit{
+    width: 300px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin:-90px 0 0 -150px;
+    z-index: 1000;
+}
+
+
+
+
+
+/***************************************游戏*********************************************/
+.game{
+    width: 800px;
+    height: 500px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+}
+.map{
+    position: absolute;
+    width:32000px ;
+    height: 500px;
+    background-image: url('../images/Maps/Map1/map1.jpg');
+    background-size: contain;
+    top: 0;
+    left: -200px;
+    z-index: -1;
+}
+.canvas{
+    /*position: absolute;*/
+    z-index: 1000;
+    /*height: 1000px;*/
+}
+.ice1{
+    position: absolute;
+    top: 350px;
+    left: 800px;
+}
+.prop_bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.prop_banana{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.game_menu{
+    background-image: url("../images/Game/pausewindow.png");
+    width: 300px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -90px 0 0 -150px;
+    z-index: 10000;
+}
+.startLine{
+    position: absolute;
+    top: 300px;
+    width: 250px;
+    height: 180px;
+    left: 400px;
+}
+.endLine{
+    position: absolute;
+    top: 300px;
+    width: 250px;
+    height: 180px;
+    left: 18000px;
+}
+/*红绿灯*/
+.light0{
+    position: absolute;
+    top: 135px;
+    left: 440px;
+}
+.light1{
+    position: absolute;
+    top: 170px;
+    left: 550px;
+}
+.light2{
+    position: absolute;
+    top: 195px;
+    left: 550px;
+}
+.light3{
+    position: absolute;
+    top: 220px;
+    left: 550px;
+}
+.light4{
+    position: absolute;
+    top: 245px;
+    left: 550px;
+}
+.prop{
+    position: fixed;
+    top: 150px;
+    left: 300px;
+    z-index: 1000;
+
+}
+.ranking{
+    position: fixed;
+    top: 80px;
+    left: 300px;
+    z-index: 1000;
+}
+.ranking span{
+    position: fixed;
+    font-size: 40px;
+    font-weight: bold;
+    top: 90px;
+    left: 320px;
+}
+.start{
+    position: fixed;
+    top: 80px;
+    left: 380px;
+    z-index: 1000;
+}
+.start span{
+    position: fixed;
+    font-size: 40px;
+    font-weight: bold;
+    top: 95px;
+    left: 480px;
+}
+.time{
+    position: fixed;
+    top: 80px;
+    left: 540px;
+    z-index: 1000;
+}
+.time span{
+    position: fixed;
+    font-size: 40px;
+    font-weight: bold;
+    top: 95px;
+    left: 620px;
+}
+.myGold{
+    position: fixed;
+    top: 80px;
+    left: 770px;
+    z-index: 1000;
+}
+.myGold span{
+    position: fixed;
+    font-size: 40px;
+    font-weight: bold;
+    top: 95px;
+    left: 860px;
+}
+/*倒计时*/
+.countDown{
+    position: absolute;
+    top:180px;
+    left:650px;
+    /*width: 56px;*/
+    /*height: 64px;*/
+    /*background-image:url('../images/Game/3.png') ;*/
+}
+/*鼠标控制按钮*/
+.up{
+    position: fixed;
+    top: 340px;
+    left: 930px;
+    z-index: 10000;
+}
+.down{
+    position: fixed;
+    top: 460px;
+    left: 930px;
+    z-index: 10000;
+}
+.go{
+    position: fixed;
+    top: 400px;
+    left: 990px;
+    z-index: 10000;
+}
+.stop{
+    position: fixed;
+    top: 400px;
+    left: 870px;
+    z-index: 10000;
+}
+.pause{
+    position: fixed;
+    top: 80px;
+    left: 1000px;
+    z-index: 10000;
+}
+.player{
+    position: absolute;
+
+}
+.car1{
+    position: absolute;
+    left:50px;
+    top: 300px;
+    z-index: 100;
+}
+.bicker1{
+    position: absolute;
+    left:80px;
+    top: 250px;
+    z-index: 1000;
+}
+.after1{
+    position: absolute;
+    left:50px;
+    top: 330px;
+    z-index: 10;
+    animation-duration:0.5s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+.front1{
+    position: absolute;
+    left:140px;
+    top: 330px;
+    z-index: 10;
+    animation-duration:0.5s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+
+}
+@keyframes wheel {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+/***********************颁奖台*******************/
+.podium{
+    background-image: url("../images/End/ending.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-size: 30px;
+    color: white;
+
+}
+.podium_rank{
+    position: absolute;
+    top: 85px;
+    left: 980px;
+}
+.podium_time{
+    position: absolute;
+    top: 125px;
+    left: 930px;
+}
+.podium_point{
+    position: absolute;
+    top: 85px;
+    left: 460px;
+}
+.getCoins{
+    position: absolute;
+    top: 550px;
+    left: 100px;
+}
+.MyCoins{
+    position: absolute;
+    top:600px;
+    left: 100px;
+}
+.clear_point{
+    position: absolute;
+    top:580px;
+    left: 500px;
+}
+.first{
+    position: absolute;
+    top: 295px;
+    left: 255px;
+}
+.second{
+    position: absolute;
+    top: 265px;
+    left: 450px;
+}
+.third{
+    position: absolute;
+    top: 330px;
+    left: 670px;
+}
+
+
+/************************************商店********************************************/
+.shop{
+    background-image: url('../images/Bg/shop.png');
+    background-size: cover;
+    background-repeat:no-repeat;
+    position: relative;
+}
+
+.list{
+    width: 700px;
+    height: 460px;
+    position: absolute;
+    top: 80px;
+    left: 622px;
+
+}
+
+.bicker,.car,.wheel{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 190px;
+    height: 120px;
+    margin: 37px 34px 80px 5px ;
+    float: left;
+}
+.bicker img,.car img,.wheel img{
+    width: 190px;
+    height: 120px;
+}
+.price{
+    color: coral;
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    line-height: 35px;
+}
+.equip_notice{
+    width: 114px;
+    height:88px ;
+    position:absolute
+}
+.notice,.notice2{
+    width: 300px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -90px 0 0 -150px;
+    z-index: 1000;
+}
+
+.buyed_notice{
+    width: 300px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -90px 0 0 -150px;
+    z-index: 1000;
+    font-size: 25px;
+}
+.p1_gold{
+    position: absolute;
+    top: 45px;
+    left: 150px
+}
+.p2_type{
+    position: absolute;
+    top: 70px;
+    left: 130px;
+}
+
+
+/*商店左侧预览*/
+.player_name{
+    position: absolute;
+    top: 50px;
+    left: 35px;
+    width:375px;
+    height: 35px;
+    text-align: center;
+    font-size: 25px;
+    line-height:40px;
+}
+.player_preview{
+    position: relative;
+    width: 380px;
+    height: 325px;
+    top: 90px;
+    left: 35px;
+    z-index: 102;
+}
+
+.bicker_view{
+    position: absolute;
+    top: 50px;
+    left: 105px;
+    width:125px;
+    height: 170px;
+    z-index: 101;
+
+}
+.car_view{
+    position: absolute;
+    top: 150px;
+    left: 55px;
+    width: 205px;
+    height: 102px;
+    z-index: 100;
+}
+.fWheel_view{
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: 79px;
+    height: 79px;
+    animation-name: wheel;
+    animation-duration:0.5s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+.aWheel_view{
+    position: absolute;
+    top: 200px;
+    left: 55px;
+    width: 79px;
+    height: 79px;
+    animation-name: wheel;
+    animation-duration:0.5s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+.gold{
+    position: absolute;
+    top: 450px;
+    left: 200px;
+    width: 150px;
+    height: 45px;
+    text-align: center;
+    font-size: 25px;
+    line-height: 50px;
+}
+.marquee{
+    width: 1330px;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    top: 310px;
+}
+.marquee p{
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    line-height: 25px;
+    animation: marquee 12s linear infinite;
+    white-space: nowrap;
+}
+.credit_notice,.checkpoint_notice,.smallMap_notice{
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    z-index: 1000;
+}
+@keyframes marquee {
+    0% { left: 100%; }
+    100% { left: -50%; }
+}
+
+
+
+/****************************我的车库*******************/
+.myCarport{
+    background-image: url('../images/Garage/garagebg.png');
+    background-size: cover;
+    background-repeat:no-repeat;
+    position: relative;
+}
+.carport_view{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+.carport_bicker img{
+    position: absolute;
+    width:117px ;
+    height:152px;
+    top: 60px;
+    left: 150px;
+    z-index: 3;
+}
+.carport_car img{
+    position: absolute;
+    width:192px;
+    height: 96px;
+    top: 150px;
+    left: 100px;
+    z-index: 2;
+}
+.carport_fWheel img{
+    position: absolute;
+    width:74px;
+    height: 74px;
+    top: 200px;
+    left: 100px;
+    z-index:1;
+    animation-name: wheel;
+    animation-duration:0.5s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+.carport_aWheel img{
+    position: absolute;
+    width:74px ;
+    height: 74px;
+    top: 200px;
+    left: 235px;
+    z-index:1;
+    animation-name: wheel;
+    animation-duration:0.5s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+.attr{
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    left: 100px;
+    top: 350px;
+}
+.attr tr td{
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+.pre_equip{
+    position: absolute;
+    right: 100px;
+    top: 100px;
+}
+.pre_equip tr td{
+    text-align: center;
+    width: 150px;
+    height:100% ;
+    padding: 10px;
+}
+.dir{
+    width: 60px;
+    height: 60px;
+}
+.choose_equip{
+    width:100% ;
+}
+/***********************关卡*************************/
+.main_checkpoint{
+    background-image: url('../images/Bg/checkpointbg_1.png');
+    background-size: cover;
+    background-repeat:no-repeat;
+    position: relative;
+}
+.bg_header{
+    position: absolute;
+    z-index: 100;
+    left: 0;
+}
+.bg_header img{
+    width:1366px;
+    height:245px ;
+}
+.Visual_area{
+    height: 380px;
+    width: 1070px;
+    position: absolute;
+    top: 150px;
+    left: 145px;
+    overflow: hidden;
+}
+.checkpoint{
+    height: 360px;
+    width: 8000px;
+    position:absolute;
+    top: 12px;
+    left: 300px;
+}
+.checkpoint div{
+    width: 580px;
+    height: 360px;
+    display: inline-block;
+    position:relative;
+}
+
+.point{
+    height: 360px;
+}
+
+.block{
+    width: 510px;
+    height: 360px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+.block img{
+    position: absolute;
+    top: 260px;
+    left: 10px;
+    width: 96px;
+    height: 96px;
+}
+.turn_left,.turn_right{
+    z-index:500;
+}
+/*小地图*/
+.small_point{
+    background-image: url('../images/Bg/trackbg.png');
+    background-size: cover;
+    background-repeat:no-repeat;
+    position: relative;
+}
+.mainSmallMap{
+    position: absolute;
+    top: 55px;
+    left: 110px;
+    width: 1000px;
+}
+.small_map{
+    width: 300px;
+    height:150px;
+    display: inline-block;
+    position: relative;
+    margin-right: 4px;
+}
+.track{
+    width: 160px;
+    height: 120px;
+    position: absolute;
+    left: 135px;
+    top: 31px;
+}
+.small_map4{
+    position: relative;
+    left: 120px;
+    margin-bottom: 5px;
+    margin-top:5px;
+}
+.small_block {
+    width: 300px;
+    height: 150px;
+    z-index: 10;
+    position: relative;
+}
+.small_block img{
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    width: 80px;
+    height: 80px;
+}
+.choose_map{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    right: 0;
+    top: 430px;
+}

@@ -1,0 +1,62 @@
+/**
+ * Created by Administrator on 2016/7/8.
+ */
+//主菜单按钮功能
+function MenuBtn_action(){
+
+    //点击双人游戏，打开提示框
+    $('.mode2_option').click(function(){
+        $('.notice_content').find('img').attr('src','images/Window/unwindow.png');//显示提示信息
+        $('.menu_notice').show();//显示提示框
+        $('.coverLayer').show();//显示遮罩
+    });
+    //点击关于，打开提示框
+    $('.about_option').click(function(){
+        $('.notice_content').find('img').attr('src','images/Window/anenstwindow.png');//显示提示信息
+        $('.menu_notice').show();//显示提示
+        $('.coverLayer').show();//显示遮罩
+    });
+    //点击单人游戏，进入游戏界面
+    $('.mode1_option').click(function(){
+        $('.menu').hide();//隐藏主菜单
+        $('.exit').hide();//隐藏退出按钮
+        $('.main_checkpoint').show();//显示游戏关卡
+    });
+    //点击商店选项按钮，关闭主菜单，跳转到商店页面
+    $('.shop_option').click(function(){
+        $('.menu').hide();//隐藏主菜单界面
+        $('.shop').show();//显示商店界面
+        currEquip_preview();//商店左侧玩家预览窗口
+        shopList();//商店列表
+    });
+    //点击返回按钮，关闭遮罩、提示框，回到主菜单
+    $('.back').click(function(){
+        $('.coverLayer').hide();//隐藏遮罩
+        $('.menu_notice').hide();//隐藏提示
+    });
+    //点击游戏退出按钮，回到登录界面
+    $('.exit').click(function(){
+        $('.coverLayer').show();//显示遮罩
+        $('.judge_exit').show();//显示确认框
+        //点击确定刷新页面回到登录界面
+        $('.exit_ok').click(function(){
+            location.reload();//刷新
+        });
+        //点击取消
+        $('.exit_cancel').click(function(){
+            $('.judge_exit').hide();//隐藏确认框
+            $('.coverLayer').hide();//隐藏遮罩
+        })
+    });
+    //点击确定
+    $('.notice_ok').click(function(){
+        $('.coverLayer0').hide();//隐藏遮罩
+        $('.notice').hide();
+    });
+    //点击取消
+    $('.judge_cancel').click(function(){
+        $('.buyed_notice').hide();//隐藏确认框
+        $('.coverLayer0').hide();//隐藏遮罩
+    });
+
+}
